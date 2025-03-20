@@ -87,7 +87,14 @@ impl Svg {
                 DictItem::Dict {
                     map: [(
                         "ColorSpace".to_string(),
-                        DictItem::Name(ColorSpace::Rgb.as_string().into()),
+                        DictItem::Dict {
+                            map: [(
+                                "cs0".to_string(),
+                                DictItem::Name(ColorSpace::Rgb.as_string().into()),
+                            )]
+                            .into_iter()
+                            .collect(),
+                        },
                     )]
                     .into_iter()
                     .collect(),
